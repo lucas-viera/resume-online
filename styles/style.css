@@ -125,6 +125,20 @@ a {
   align-items: center;
 }
 
+#wrapper--softskills__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  font-size: 0.9em;
+}
+
+.card--softskills {
+  border: 1px solid var(--mainBorderColor);
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  align-items: center;
+}
+
 .card--project {
   padding-top: 1em;
   padding-bottom: 1em;
