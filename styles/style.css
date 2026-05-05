@@ -41,7 +41,6 @@ li {
 
 a {
   text-decoration: none;
-
   font-weight: 500;
 }
 
@@ -147,7 +146,6 @@ a {
 
 .card--project a {
   color: var(--mainTextColor);
-
   transition: 0.3s;
 }
 
@@ -163,7 +161,6 @@ a {
 
 .card--study a {
   color: var(--mainTextColor);
-
   transition: 0.3s;
 }
 
@@ -171,11 +168,27 @@ a {
   color: rgb(30, 190, 214);
 }
 
+.card--study strong {
+  font-size: 1em;
+}
+
+.education-detail {
+  font-size: 0.9em;
+  margin-top: 0.2em;
+  color: var(--secondaryTextColor);
+}
+
 .card--work-history {
   border-left: 1px solid var(--mainBorderColor);
   margin-top: 3em;
   margin-bottom: 3em;
   padding-left: 2em;
+}
+
+.date-range {
+  font-size: 0.85em;
+  color: var(--secondaryTextColor);
+  margin-left: 0.5em;
 }
 
 .line-break {
@@ -207,5 +220,10 @@ a {
   .card--work-history {
     border-left: none;
     padding-left: 0;
+  }
+
+  .date-range {
+    display: block;
+    margin-left: 0;
   }
 }
