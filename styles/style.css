@@ -1,24 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --mainTextColor-light: #000;
-  --secondaryTextColor-light: rgb(51 51 51);
+  --mainTextColor-light: #111;
+  --secondaryTextColor-light: #555;
   --mainLinkColor-light: #0da2b8;
-  --mainBorderColor-light: rgb(218, 218, 218);
-  --mainBgColor-light: rgb(249, 250, 251);
+  --mainBorderColor-light: #e2e2e2;
+  --mainBgColor-light: #fafbfc;
+  --cardBgColor-light: #fff;
+  --accentBg-light: #f0f7ff;
+  --accentText-light: #185FA5;
 
   --mainTextColor-dark: #fff;
   --secondaryTextColor-dark: #adb0b1;
   --mainLinkColor-dark: rgb(30, 190, 214);
   --mainBorderColor-dark: #2b3031;
   --mainBgColor-dark: #131415;
+  --cardBgColor-dark: #1a1b1c;
+  --accentBg-dark: #1a2a3a;
+  --accentText-dark: #7fb8e8;
+}
 
-  /* Modify here for light or dark modes */
+/* Dark theme (engineering) */
+.theme-dark {
   --mainTextColor: var(--mainTextColor-dark);
   --secondaryTextColor: var(--secondaryTextColor-dark);
   --mainLinkColor: var(--mainLinkColor-dark);
   --mainBorderColor: var(--mainBorderColor-dark);
   --mainBgColor: var(--mainBgColor-dark);
+  --cardBgColor: var(--cardBgColor-dark);
+  --accentBg: var(--accentBg-dark);
+  --accentText: var(--accentText-dark);
+}
+
+/* Light theme (product + landing) */
+.theme-light {
+  --mainTextColor: var(--mainTextColor-light);
+  --secondaryTextColor: var(--secondaryTextColor-light);
+  --mainLinkColor: var(--mainLinkColor-light);
+  --mainBorderColor: var(--mainBorderColor-light);
+  --mainBgColor: var(--mainBgColor-light);
+  --cardBgColor: var(--cardBgColor-light);
+  --accentBg: var(--accentBg-light);
+  --accentText: var(--accentText-light);
 }
 
 * {
@@ -30,6 +53,7 @@
 
 body {
   background-color: var(--mainBgColor);
+  margin: 0;
 }
 
 p,
@@ -59,6 +83,7 @@ li {
   padding-bottom: 1em;
 }
 
+/* Hero */
 #wrapper--hero {
   display: flex;
   align-items: center;
@@ -82,10 +107,7 @@ a {
   border-radius: 50%;
 }
 
-#email a:hover {
-  color: var(--mainLinkColor);
-}
-
+/* Socials */
 #socials--list {
   display: flex;
   justify-content: space-between;
@@ -101,15 +123,15 @@ a {
 }
 
 #socials--list a:hover {
-  font-weight: 100;
   color: var(--mainLinkColor);
-  font-size: 0.9em;
 }
 
+/* Qualifications */
 #qualifications--list {
   list-style: none;
 }
 
+/* Tech stack chips */
 #wrapper--techstack__items {
   display: flex;
   flex-wrap: wrap;
@@ -124,6 +146,7 @@ a {
   align-items: center;
 }
 
+/* Soft skills chips */
 #wrapper--softskills__items {
   display: flex;
   flex-wrap: wrap;
@@ -138,21 +161,43 @@ a {
   align-items: center;
 }
 
-.card--project {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border-top: 1px solid var(--mainBorderColor);
+/* Product skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75em;
 }
 
-.card--project a {
+.skill-card {
+  background: var(--accentBg);
+  border-radius: 6px;
+  padding: 0.7em 1em;
+}
+
+.skill-card span {
+  font-size: 0.9em;
+  color: var(--accentText);
+  font-weight: 400;
+}
+
+/* Quote/statement block */
+.statement-block {
+  background: var(--cardBgColor);
+  border-left: 3px solid var(--mainLinkColor);
+  padding: 1em 1.2em;
+  border-radius: 0 6px 6px 0;
+  margin: 1em 0;
+}
+
+.statement-block p {
+  font-size: 1em;
   color: var(--mainTextColor);
-  transition: 0.3s;
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 300;
 }
 
-.card--project a:hover {
-  color: rgb(30, 190, 214);
-}
-
+/* Study/cert cards */
 .card--study {
   padding-top: 1em;
   padding-bottom: 1em;
@@ -165,7 +210,7 @@ a {
 }
 
 .card--study a:hover {
-  color: rgb(30, 190, 214);
+  color: var(--mainLinkColor);
 }
 
 .card--study strong {
@@ -178,6 +223,7 @@ a {
   color: var(--secondaryTextColor);
 }
 
+/* Work history */
 .card--work-history {
   border-left: 1px solid var(--mainBorderColor);
   margin-top: 3em;
@@ -196,6 +242,108 @@ a {
   height: 1px;
 }
 
+/* Technical background (bottom section in product page) */
+.tech-background {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  font-size: 0.85em;
+}
+
+.tech-background span {
+  color: var(--secondaryTextColor);
+  padding: 0.3em 0.7em;
+  border: 1px solid var(--mainBorderColor);
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Landing page specific */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2em;
+  text-align: center;
+}
+
+.landing-container #profile-pic {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 1.5em;
+}
+
+.landing-container h1 {
+  font-size: 36px;
+  margin: 0 0 0.3em;
+  line-height: 1.2;
+}
+
+.landing-tagline {
+  font-size: 1.1em;
+  color: var(--secondaryTextColor);
+  margin: 0 0 2.5em;
+  font-weight: 300;
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3em;
+}
+
+.btn {
+  padding: 0.8em 2em;
+  border-radius: 6px;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: #111;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #333;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #111;
+  border: 1px solid #ddd;
+}
+
+.btn-secondary:hover {
+  background: #f5f5f5;
+  color: #111;
+  border-color: #bbb;
+}
+
+.landing-links {
+  display: flex;
+  gap: 2em;
+}
+
+.landing-links a {
+  font-size: 0.9em;
+  color: var(--secondaryTextColor);
+  font-weight: 300;
+  transition: 0.3s;
+}
+
+.landing-links a:hover {
+  color: var(--mainLinkColor);
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   .section--page {
     padding-top: 1em;
@@ -204,6 +352,7 @@ a {
 
   #wrapper--hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 1em;
   }
@@ -211,10 +360,6 @@ a {
   #profile-pic {
     width: 200px;
     height: 200px;
-  }
-
-  #wrapper--hero {
-    flex-direction: column;
   }
 
   .card--work-history {
@@ -225,5 +370,18 @@ a {
   .date-range {
     display: block;
     margin-left: 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-container h1 {
+    font-size: 28px;
+  }
+
+  .landing-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 }
